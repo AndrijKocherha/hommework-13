@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/nullstyle.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<title>task2</title>
+	</head>
+	<body>
+		<main class="page">
+			<div class="page__container">
+				<div class="task">
+					<div class="task__condition text">Задача 2. Реалізувати бінарний пошук (розглядали на попередніх уроках) з використанням рекурсивного алгоритму.</div>
+				</div>
+				<script>
+					function sortArrey(arr) {
+						let prevLastIndx = arr.length - 2
+						for (let i = 0; i < prevLastIndx; i++) {
+							let minIndx = i
+							for (let j = i + 1; j < arr.length; j++) {
+								if (arr[minIndx] > arr[j]) {
+									minIndx = j
+								}
+							}
+							if (i !== minIndx) {
+								let temp = arr[i]
+								arr[i] = arr[minIndx]
+								arr[minIndx] = temp
+							}
+						}
+						return arr
+					}
+					let numbers = [4, 65, 2, 77, 3, 6, 13, 5, 14, 11, 1]
+					sortArrey(numbers)
+					function searchNumber(arr, seachEl, start, end) {
+						let middle = Math.floor((end + start) / 2)
+						if (start <= end) {
+							if (arr[middle] === seachEl) return middle
+							if (arr[middle] < seachEl) return searchNumber(arr, seachEl, (start = middle + 1), end)
+							if (arr[middle] > seachEl) return searchNumber(arr, seachEl, start, (end = middle - 1))
+						} else {
+							return false
+						}
+						if (middle === seachEl) return middle
+						return searchNumber(arr, seachEl)
+					}
+					let searchedNumber = searchNumber(numbers, 14, 0, numbers.length - 1)
+					document.write(searchedNumber)
+				</script>
+			</div>
+		</main>
+	</body>
+</html>

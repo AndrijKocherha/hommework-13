@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/nullstyle.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<title>task1</title>
+	</head>
+	<body>
+		<main class="page">
+			<div class="page__container">
+				<div class="task">
+					<div class="task__condition text">
+						Задача 1. Нехай , де . Визначити . Розв’язати з використанням рекурсивних і нерекурсивних алгоритмів (над такою простою задачою думав 2 години )
+					</div>
+				</div>
+				<script>
+					//з рекурсією
+					function withRec(i) {
+						if (i === 0) return 1
+						else return withRec(i - 1) + 2 * i
+					}
+					// без рекурсії
+					function withoutRec(i) {
+						let x = 1
+						for (let j = 1; j <= i; j++) {
+							x += 2 * j
+						}
+						return x
+					}
+					document.write(`без рекурсії ${withoutRec(10)} <br/>`)
+					document.write(`з рекурсією ${withRec(10)}`)
+				</script>
+			</div>
+		</main>
+	</body>
+</html>
